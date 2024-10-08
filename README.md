@@ -166,18 +166,18 @@ Each element includes coordinates (x, y), a unique ID, and the page number it ap
 
 ### Setup
 
-To setup the environment, clone the repository and install the required dependencies by running the following commands:
+To set the environment, clone the repository and install the required dependencies by running the following commands:
 
 ```
-$ git clone https://github.com/UpstageAI/dp-bench.git
-$ cd dp-bench
+$ git clone httpshttps://huggingface.co/datasets/upstage/document-parse-benchmark.git
+$ cd document-parse-benchmark
 $ pip install -r requirements.txt
 ```
 The repository includes necessary scripts for performing inference and evaluation of document parsers. 
 
 ### Dataset
 The benchmark dataset can be found in the `dataset` folder. 
-It contains wide range of document layouts, from text-heavy pages to complex tables, enabling a thorough evaluation of the parser’s performance. 
+It contains a wide range of document layouts, from text-heavy pages to complex tables, enabling a thorough evaluation of the parser’s performance. 
 The dataset comes with annotations for layout elements such as paragraphs, headings, and tables.
 
 
