@@ -50,8 +50,10 @@ This metric evaluates how accurately the table structure is predicted, including
 A higher TEDS score indicates better overall performance in capturing both the table layout and the textual content.
 
 **TEDS-S (Tree Edit Distance-based Similarity-Struct).**
-TEDS-S stands for Tree Edit Distance-based Similarity-Struct, measuring the structural similarity between the predicted and reference tables.
 
+TEDS-S stands for Tree Edit Distance-based Similarity-Struct, measuring the structural similarity between the predicted and reference tables.
+While the metric formulation is identical to TEDS, it uses modified tree representations, denoted as T_a' and T_b', where the nodes correspond solely to the table structure, omitting any cell-level content.
+This allows TEDS-S to concentrate on assessing the structural similarity of the tables, such as row and column alignment, without being influenced by the textual data contained within the cells.
 ## Benchmark dataset
 
 ### Document sources
