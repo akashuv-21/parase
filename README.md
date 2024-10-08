@@ -45,7 +45,7 @@ $$
 TEDS(T_a, T_b) = 1 - \frac{EditDist(T_a, T_b)}{\max(|T_a|, |T_b|)}
 $$
 
-The equation evaluates the similarity between two tables by modeling them as tree structures ($T_a$ and $T_b$).
+The equation evaluates the similarity between two tables by modeling them as tree structures (T_a and T_b).
 This metric evaluates how accurately the table structure is predicted, including the content of each cell.
 A higher TEDS score indicates better overall performance in capturing both the table layout and the textual content.
 
