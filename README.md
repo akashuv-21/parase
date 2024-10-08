@@ -1,8 +1,9 @@
 # DP-Bench: Document Parsing Benchmark
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/54f8201b-5d3f-4673-b97d-848d8fcd10ff" width="800px">
+  <img src="https://cdn-uploads.huggingface.co/production/uploads/6524ab1e27d1f3d84ad07705/Q7CC2z4CAJzZ4-CGaSnBO.png" width="800px">
 </div>
+
 
 Document parsing refers to the process of converting complex documents, such as PDFs and scanned images, into structured text formats like HTML and Markdown.
 It is especially useful as a preprocessor for [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) systems, as it preserves key structural information from visually rich documents.
@@ -56,11 +57,15 @@ TEDS-S stands for Tree Edit Distance-based Similarity-Struct, measuring the stru
 ### Document sources
 The benchmark dataset is gathered from three sources: 90 samples from the Library of Congress; 90 samples from Open Educational Resources; and 20 samples from Upstage's internal resources, which is composed of company/product materials and [Solar 10.7B](https://arxiv.org/abs/2312.15166) paper. Together, these sources provide a broad and specialized range of information.
 
-| Sources   | Count |
-|------------|-------|
+<div style="width: 500px;">
+  
+| Sources                    | Count|
+|:--------------------------:|:----:|
 | Library of Congress        | 90   |
 | Open educational resources | 90   |
 | Upstage                    | 20   |
+
+</div>
 
 ### Layout elements
 
@@ -72,8 +77,10 @@ Note that only Heading1 is included among various heading sizes because it repre
 This high-level segmentation is sufficient for assessing the core structure without adding unnecessary complexity. 
 Detailed heading levels like Heading2 and Heading3 are omitted to keep the evaluation focused and manageable.
 
+<div style="width: 500px;">
+  
 | Category   | Count |
-|------------|-------|
+|:----------:|:-----:|
 | Paragraph  | 804   |
 | Heading1   | 194   |
 | Footer     | 168   |
@@ -86,6 +93,8 @@ Detailed heading levels like Heading2 and Heading3 are omitted to keep the evalu
 | Figure     | 57    |
 | Table      | 55    |
 | Index      | 10    |
+
+</div>
 
 ### Dataset format
 
@@ -130,9 +139,11 @@ Each element includes coordinates (x, y), a unique ID, and the page number it ap
     ...
 ```
 
+<div style="width: 800px;">
+  
 ### Document domains
 | Domain                              | Subdomain               | Count |
-|-------------------------------------|-------------------------|-------|
+|:-----------------------------------:|:-----------------------:|:-----:|
 | Social Sciences                     | Economics               | 26    |
 |                                     | Political Science       | 18    |
 |                                     | Sociology               | 16    |
@@ -148,6 +159,8 @@ Each element includes coordinates (x, y), a unique ID, and the page number it ap
 |                                     | Informatics             | 9     |
 |                                     | Computer Science        | 8     |
 |                                     | Statistics              | 2     |
+
+</div>
 
 ## Usage
 
@@ -192,11 +205,15 @@ $ python evaluate.py \
 ```
 
 # Leaderboard
-| **Source**           | **Date**  | **TEDS**  | **TEDS-S** | **NID**   | **Avg Time (sec.)** |
-|----------------------|-----------|------------|-----------|---------------------|
+<div style="width: 800px;">
+  
+| Source               | Date      | TEDS       | TEDS-S    | NID                 |
+|:--------------------:|:---------:|:----------:|:---------:|:-------------------:|
 | aws                  | 24.09.26  | 90.22      | 95.94     | 14.47               |
 | llamaparse           | 24.09.26  | 70.86      | 90.92     | 4.14                |
 | unstructured         | 24.09.26  | 69.9       | 90.42     | 13.14               |
 | google               | 24.09.26  | 68.75      | 90.09     | 5.85                |
 | microsoft            | 24.09.26  | 89.07      | 87.03     | 4.44                |
-| upstage              | 24.09.26  | **93.47**  | **96.27** | **3.79**            |
+| upstage              | 24.09.26  | 93.47      | 96.27     | 3.79                |
+
+</div>
