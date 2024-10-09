@@ -186,7 +186,8 @@ $ pip install -r requirements.txt
 The repository includes necessary scripts for inference and evaluation, as described in the following sections.
 
 ### Inference
-TODO
+We offer inference scripts that let you request results from various document parsing services.
+For more details, refer to this [README](https://huggingface.co/datasets/upstage/dp-bench/blob/main/scripts/README.md).
 
 ### Evaluation
 The benchmark dataset can be found in the `dataset` folder. 
