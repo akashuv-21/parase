@@ -62,7 +62,9 @@ This allows TEDS-S to concentrate on assessing the structural similarity of the 
 ## Benchmark dataset
 
 ### Document sources
-The benchmark dataset is gathered from three sources: 90 samples from the Library of Congress; 90 samples from Open Educational Resources; and 20 samples from Upstage's internal resources, which is composed of company/product materials and [Solar 10.7B](https://arxiv.org/abs/2312.15166) paper. Together, these sources provide a broad and specialized range of information.
+The benchmark dataset is gathered from three sources: 90 samples from the Library of Congress; 90 samples from Open Educational Resources; 
+and 20 samples from Upstage's internal documents.
+Together, these sources provide a broad and specialized range of information.
 
 <div style="width: 500px;">
   
