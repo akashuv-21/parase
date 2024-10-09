@@ -175,10 +175,11 @@ Each element includes coordinates (x, y), a unique ID, and the page number it ap
 
 ### Setup
 
-To set the environment, clone the repository and install the required dependencies by running the following commands:
+Before setting up the environment, make sure to [install Git LFS](https://git-lfs.com/), which is required for handling large files.
+Once installed, you can clone the repository and install the necessary dependencies by running the following commands:
 
 ```
-$ git clone httpshttps://huggingface.co/datasets/upstage/dp-bench.git
+$ git clone https://huggingface.co/datasets/upstage/dp-bench.git
 $ cd dp-bench
 $ pip install -r requirements.txt
 ```
