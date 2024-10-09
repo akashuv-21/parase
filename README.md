@@ -1,4 +1,10 @@
-# DP-Bench: Document Parsing Benchmark
+---
+license: mit
+tags:
+- nlp
+---
+
+# **DP-Bench: Document Parsing Benchmark**
 
 <div align="center">
   <img src="https://cdn-uploads.huggingface.co/production/uploads/6524ab1e27d1f3d84ad07705/Q7CC2z4CAJzZ4-CGaSnBO.png" width="800px">
@@ -45,14 +51,13 @@ $$
 TEDS(T_a, T_b) = 1 - \frac{EditDist(T_a, T_b)}{\max(|T_a|, |T_b|)}
 $$
 
-The equation evaluates the similarity between two tables by modeling them as tree structures (T_a and T_b).
+The equation evaluates the similarity between two tables by modeling them as tree structures \\(T_a\\) and \\(T_b\\).
 This metric evaluates how accurately the table structure is predicted, including the content of each cell.
 A higher TEDS score indicates better overall performance in capturing both the table layout and the textual content.
 
 **TEDS-S (Tree Edit Distance-based Similarity-Struct).**
-
 TEDS-S stands for Tree Edit Distance-based Similarity-Struct, measuring the structural similarity between the predicted and reference tables.
-While the metric formulation is identical to TEDS, it uses modified tree representations, denoted as T_a' and T_b', where the nodes correspond solely to the table structure, omitting any cell-level content.
+While the metric formulation is identical to TEDS, it uses modified tree representations, denoted as \\(T_a'\\) and \\(T_b'\\), where the nodes correspond solely to the table structure, omitting any cell-level content.
 This allows TEDS-S to concentrate on assessing the structural similarity of the tables, such as row and column alignment, without being influenced by the textual data contained within the cells.
 ## Benchmark dataset
 
@@ -62,7 +67,7 @@ The benchmark dataset is gathered from three sources: 90 samples from the Librar
 <div style="width: 500px;">
   
 | Sources                    | Count|
-|:--------------------------:|:----:|
+|:---------------------------|:----:|
 | Library of Congress        | 90   |
 | Open educational resources | 90   |
 | Upstage                    | 20   |
@@ -82,7 +87,7 @@ Detailed heading levels like Heading2 and Heading3 are omitted to keep the evalu
 <div style="width: 500px;">
   
 | Category   | Count |
-|:----------:|:-----:|
+|:-----------|------:|
 | Paragraph  | 804   |
 | Heading1   | 194   |
 | Footer     | 168   |
@@ -144,23 +149,23 @@ Each element includes coordinates (x, y), a unique ID, and the page number it ap
 <div style="width: 800px;">
   
 ### Document domains
-| Domain                              | Subdomain               | Count |
-|:-----------------------------------:|:-----------------------:|:-----:|
-| Social Sciences                     | Economics               | 26    |
-|                                     | Political Science       | 18    |
-|                                     | Sociology               | 16    |
-|                                     | Law                     | 12    |
-|                                     | Cultural Anthropology   | 11    |
-|                                     | Education               | 8     |
-|                                     | Psychology              | 4     |
-| Natural Sciences                    | Environmental Science   | 26    |
-|                                     | Biology                 | 10    |
-|                                     | Astronomy               | 4     |
-| Technology                          | Technology              | 33    |
-| Mathematics and Information Sciences| Mathematics             | 13    |
-|                                     | Informatics             | 9     |
-|                                     | Computer Science        | 8     |
-|                                     | Statistics              | 2     |
+| Domain                               | Subdomain               | Count |
+|:-------------------------------------|:------------------------|------:|
+| Social Sciences                      | Economics               | 26    |
+| Social Sciences                      | Political Science       | 18    |
+| Social Sciences                      | Sociology               | 16    |
+| Social Sciences                      | Law                     | 12    |
+| Social Sciences                      | Cultural Anthropology   | 11    |
+| Social Sciences                      | Education               | 8     |
+| Social Sciences                      | Psychology              | 4     |
+| Natural Sciences                     | Environmental Science   | 26    |
+| Natural Sciences                     | Biology                 | 10    |
+| Natural Sciences                     | Astronomy               | 4     |
+| Technology                           | Technology              | 33    |
+| Mathematics and Information Sciences | Mathematics             | 13    |
+| Mathematics and Information Sciences | Informatics             | 9     |
+| Mathematics and Information Sciences | Computer Science        | 8     |
+| Mathematics and Information Sciences | Statistics              | 2     |
 
 </div>
 
@@ -171,8 +176,8 @@ Each element includes coordinates (x, y), a unique ID, and the page number it ap
 To set the environment, clone the repository and install the required dependencies by running the following commands:
 
 ```
-$ git clone httpshttps://huggingface.co/datasets/upstage/document-parse-benchmark.git
-$ cd document-parse-benchmark
+$ git clone httpshttps://huggingface.co/datasets/upstage/dp-bench.git
+$ cd dp-bench
 $ pip install -r requirements.txt
 ```
 The repository includes necessary scripts for performing inference and evaluation of document parsers. 
@@ -209,13 +214,13 @@ $ python evaluate.py \
 # Leaderboard
 <div style="width: 800px;">
   
-| Source               | Date      | TEDS       | TEDS-S    | NID         |  Avg. Time  |
-|:--------------------:|:---------:|:----------:|:---------:|:-----------:|:-----------:|
-| aws                  | 24.09.26  | 86.39      | 90.22     | 95.94       |  14.47      |
-| llamaparse           | 24.09.26  | 68.9       | 70.86     | 90.92       |  4.14       |
-| unstructured         | 24.09.26  | 64.49      | 69.9      | 90.42       |  13.14      |
-| google               | 24.09.26  | 62.44      | 68.75     | 90.09       |  5.85       |
-| microsoft            | 24.09.26  | 85.54      | 89.07     | 87.03       |  4.44       |
-| upstage              | 24.09.26  | 91.01      | 93.47     | 96.27       |  3.79       |
+| Source               | Request date | TEDS       | TEDS-S    | NID         |  Avg. Time  |
+|:---------------------|:------------:|-----------:|----------:|------------:|------------:|
+| aws                  | 2024-09-26   | 86.39      | 90.22     | 95.94       |  14.47      |
+| llamaparse           | 2024-09-26   | 68.90      | 70.86     | 90.92       |  4.14       |
+| unstructured         | 2024-09-26   | 64.49      | 69.90     | 90.42       |  13.14      |
+| google               | 2024-09-26   | 62.44      | 68.75     | 90.09       |  5.85       |
+| microsoft            | 2024-09-26   | 85.54      | 89.07     | 87.03       |  4.44       |
+| upstage              | 2024-09-26   | 91.01      | 93.47     | 96.27       |  3.79       |
 
 </div>
