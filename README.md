@@ -183,15 +183,18 @@ $ git clone https://huggingface.co/datasets/upstage/dp-bench.git
 $ cd dp-bench
 $ pip install -r requirements.txt
 ```
-The repository includes necessary scripts for performing inference and evaluation of document parsers. 
+The repository includes necessary scripts for inference and evaluation, as described in the following sections.
 
-### Dataset
+### Inference
+TODO
+
+### Evaluation
 The benchmark dataset can be found in the `dataset` folder. 
 It contains a wide range of document layouts, from text-heavy pages to complex tables, enabling a thorough evaluation of the parser’s performance. 
 The dataset comes with annotations for layout elements such as paragraphs, headings, and tables.
 
 
-### Element detection and serialization evaluation
+#### Element detection and serialization evaluation
 This evaluation will compute the NID metric to assess how accurately the text in the document is recognized considering the structure and order of the document layout.
 To evaluate the document layout results, run the following command:
 
@@ -203,7 +206,7 @@ $ python evaluate.py \
 ```
 
 
-### Table structure recognition evaluation
+#### Table structure recognition evaluation
 This will compute TEDS-S (structural accuracy) and TEDS (structural and textual accuracy).
 To evaluate table recognition performance, use the following command:
 
