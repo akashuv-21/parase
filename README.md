@@ -33,7 +33,7 @@ $$
 NID = 1 - \frac{\text{distance}}{\text{len(reference)} + \text{len(prediction)}}
 $$
 
-The distance measures the similarity between the reference and predicted text, with values ranging from 0 to 1, where 0 represents perfect alignment and 1 denotes complete dissimilarity. 
+The normalized distance in the equation measures the similarity between the reference and predicted text, with values ranging from 0 to 1, where 0 represents perfect alignment and 1 denotes complete dissimilarity. 
 Here, the predicted text is compared against the reference text to determine how many character-level insertions and deletions are needed to match it.
 A higher NID score reflects better performance in both recognizing and ordering the text within the document's detected layout regions.
 
@@ -53,12 +53,13 @@ $$
 
 The equation evaluates the similarity between two tables by modeling them as tree structures \\(T_a\\) and \\(T_b\\).
 This metric evaluates how accurately the table structure is predicted, including the content of each cell.
-A higher TEDS score indicates better overall performance in capturing both the table layout and the textual content.
+A higher TEDS score indicates better overall performance in capturing both the table structure and the content of each cell.
 
 **TEDS-S (Tree Edit Distance-based Similarity-Struct).**
 TEDS-S stands for Tree Edit Distance-based Similarity-Struct, measuring the structural similarity between the predicted and reference tables.
-While the metric formulation is identical to TEDS, it uses modified tree representations, denoted as \\(T_a'\\) and \\(T_b'\\), where the nodes correspond solely to the table structure, omitting any cell-level content.
-This allows TEDS-S to concentrate on assessing the structural similarity of the tables, such as row and column alignment, without being influenced by the textual data contained within the cells.
+While the metric formulation is identical to TEDS, it uses modified tree representations, denoted as \\(T_a'\\) and \\(T_b'\\), where the nodes correspond solely to the table structure, omitting the content of each cell.
+This allows TEDS-S to concentrate on assessing the structural similarity of the tables, such as row and column alignment, without being influenced by the contents within the cells.
+
 ## Benchmark dataset
 
 ### Document sources
@@ -80,7 +81,9 @@ Together, these sources provide a broad and specialized range of information.
 
 While works like [ReadingBank](https://github.com/doc-analysis/ReadingBank) often focus solely on text conversion in document parsing, we have taken a more detailed approach by dividing the document into specific elements, with a particular emphasis on table performance. 
 
-This benchmark dataset was created by extracting pages with various layout elements from multiple types of documents. The layout elements consist of 12 element types: **Table, Paragraph, Figure, Chart, Header, Footer, Caption, Equation, Heading1, List, Index, Footnote**. This diverse set of layout elements ensures that our evaluation covers a wide range of document structures and complexities, providing a comprehensive assessment of document parsing capabilities.
+This benchmark dataset was created by extracting pages with various layout elements from multiple types of documents. 
+The layout elements consist of 12 element types: **Table, Paragraph, Figure, Chart, Header, Footer, Caption, Equation, Heading1, List, Index, Footnote**. 
+This diverse set of layout elements ensures that our evaluation covers a wide range of document structures and complexities, providing a comprehensive assessment of document parsing capabilities.
 
 Note that only Heading1 is included among various heading sizes because it represents the main structural divisions in most documents, serving as the primary section title. 
 This high-level segmentation is sufficient for assessing the core structure without adding unnecessary complexity. 
@@ -110,7 +113,8 @@ Detailed heading levels like Heading2 and Heading3 are omitted to keep the evalu
 The dataset is in JSON format, representing elements extracted from a PDF file, with each element defined by its position, layout class, and content. 
 The **category** field represents various layout classes, including but not limited to text regions, headings, footers, captions, tables, and more.
 The **content** field has three options: the **text** field contains text-based content, **html** represents layout regions where equations are in LaTeX and tables in HTML, and **markdown** distinguishes between regions like Heading1 and other text-based regions such as paragraphs, captions, and footers.
-Each element includes coordinates (x, y), a unique ID, and the page number it appears on. The dataset’s structure supports flexible representation of layout classes and content formats for document parsing.
+Each element includes coordinates (x, y), a unique ID, and the page number it appears on. 
+The dataset’s structure supports flexible representation of layout classes and content formats for document parsing.
 
 ```
 {
