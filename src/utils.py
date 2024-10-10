@@ -91,7 +91,7 @@ def check_dataset_format(data: dict, image_key: str) -> None:
     """
     if data[image_key].get("elements") is None:
         raise ValueError(
-            f"{image_key} does not have 'elements' key in the ground truth file. "
+            f"{image_key} does not have 'elements' key in the json file. "
             "Check if you are passing the correct data."
         )
 

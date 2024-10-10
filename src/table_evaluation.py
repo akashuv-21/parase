@@ -5,9 +5,8 @@ The code is available at: https://github.com/ibm-aur-nlp/PubTabNet.
 A slight modification has been added to the code to improve the evaluation process.
 """
 
+import re
 import distance
-
-from bs4 import BeautifulSoup
 
 from lxml import etree, html
 from collections import deque
@@ -135,30 +134,17 @@ class TEDSEvaluator(object):
             return 0.0
 
 
-def remove_table_tags(html_text : str) -> str:
-    """Remove the <table> tags from the html text.
+def get_table_contents(text):
+    # Regular expression to capture content within <table ...> and </table> tags
+    table_contents = re.findall(r'<table[^>]*?>(.*?)</table>', text, flags=re.DOTALL)
 
-    Args:
-        html_text (str): The html text to remove the <table> tags from.
-    Returns:
-        str: The html text without the <table> tags.
-    """
-    if "<table>" not in html_text:
-        return html_text
-
-    soup = BeautifulSoup(html_text, 'html.parser')
-
-    # Get contents of the <tbody> tag
-    table_contents = ''
-    for tag in soup.table.find_all(recursive=False):
-        table_contents += str(tag)
+    if len(table_contents) == 0:
+        table_contents = [text]
 
     return table_contents
 
 
-def extract_tables(
-    data : dict, is_pred_data : bool = False
-) -> str:
+def extract_tables(data : dict) -> str:
     """Extract tables from the dictionary data.
 
     Args:
@@ -172,12 +158,11 @@ def extract_tables(
     html = '<html><body>'
     for elem in data['elements']:
         if elem['category'].lower() == 'table':
-            if is_pred_data:
-                table_html = remove_table_tags(elem['content']['html'])
-            else:
-                table_html = elem['content']['html']
+            table_html_elements = get_table_contents(elem['content']['html'])
 
-            html += f'<table>{table_html}</table>'
+            for table_html in table_html_elements:
+                html += f'<table>{table_html}</table>'
+
     html += '</body></html>'
 
     return html
@@ -216,7 +201,7 @@ def prepare_table_dataset(gt_data, pred_data):
         pred_elem = pred_data.get(image_key)
 
         gt_tables = extract_tables(gt_elem)
-        pred_tables = extract_tables(pred_elem, is_pred_data=True)
+        pred_tables = extract_tables(pred_elem)
 
         if not has_table_content(gt_tables):
             continue

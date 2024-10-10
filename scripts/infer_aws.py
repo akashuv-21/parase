@@ -336,7 +336,7 @@ if __name__ == "__main__":
     )
     args.add_argument(
         "--input_formats",
-        type=str, default=[
+        type=list, default=[
             ".pdf", ".jpg", ".jpeg", ".png", ".bmp", ".tiff", ".heic"
         ],
         help="Supported input file formats"

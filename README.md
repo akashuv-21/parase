@@ -201,7 +201,7 @@ To evaluate the document layout results, run the following command:
 
 ```
 $ python evaluate.py \
-  --label_path <path to the reference json file> \
+  --ref_path <path to the reference json file> \
   --pred_path <path to the predicted json file> \
   --mode layout
 ```
@@ -213,7 +213,7 @@ To evaluate table recognition performance, use the following command:
 
 ```
 $ python evaluate.py \
-  --label_path <path to the reference json file> \
+  --ref_path <path to the reference json file> \
   --pred_path <path to the predicted json file> \
   --mode table
 ```
@@ -223,11 +223,11 @@ $ python evaluate.py \
   
 | Source               | Request date | TEDS       | TEDS-S    | NID ⬇️      |  Avg. Time  |
 |:---------------------|:------------:|-----------:|----------:|------------:|------------:|
-| upstage              | 2024-09-26   | **91.01**      | **93.47**     | **96.27**       |  **3.79**       |
-| aws                  | 2024-09-26   | 86.39      | 90.22     | 95.94       |  14.47      |
-| llamaparse           | 2024-09-26   | 68.90      | 70.86     | 90.92       |  4.14       |
-| unstructured         | 2024-09-26   | 64.49      | 69.90     | 90.42       |  13.14      |
-| google               | 2024-09-26   | 62.44      | 68.75     | 90.09       |  5.85       |
-| microsoft            | 2024-09-26   | 85.54      | 89.07     | 87.03       |  4.44       |
+| upstage              | 2024-10-10   | **92.06**      | **93.81**     | **96.23**       |  **3.79**       |
+| aws                  | 2024-10-10   | 86.39      | 90.22     | 95.94       |  14.47      |
+| llamaparse           | 2024-10-10   | 73.36      | 76.29     | 92.22       |  4.14       |
+| unstructured         | 2024-10-10   | 64.49      | 69.90     | 90.42       |  13.14      |
+| google               | 2024-10-10   | 64.64      | 70.95     | 90.09       |  5.85       |
+| microsoft            | 2024-10-10   | 85.54      | 89.07     | 87.03       |  4.44       |
 
 </div>

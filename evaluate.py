@@ -8,7 +8,7 @@ from src.table_evaluation import evaluate_table
 def parse_args():
     parser = argparse.ArgumentParser(description="Arguments for evaluation")
     parser.add_argument(
-        "--label_path",
+        "--ref_path",
         type=str, required=True,
         help="Path to the ground truth file"
     )
@@ -39,7 +39,7 @@ def main():
         print(f"  {k}: {v}")
     print("-" * 50)
 
-    label_data = read_file(args.label_path)
+    label_data = read_file(args.ref_path)
     pred_data = read_file(args.pred_path)
 
     check_data_validity(label_data, pred_data)

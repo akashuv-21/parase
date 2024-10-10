@@ -12,7 +12,7 @@ class UpstageInference:
     def __init__(
         self,
         save_path,
-        input_formats=[".pdf", ".jpg", ".jpeg", ".png", ".bmp", ".tiff", ".heic"]
+        input_formats=[".pdf", ".jpg", ".jpeg", ".png", ".bmp", ".tiff", ".heic"],
         output_formats=["text", "html", "markdown"],
         model_name="document-parse-240910",
     ):
@@ -114,14 +114,14 @@ if __name__ == "__main__":
     )
     args.add_argument(
         "--input_formats",
-        type=str, default=[
+        type=list, default=[
             ".pdf", ".jpg", ".jpeg", ".png", ".bmp", ".tiff", ".heic"
         ],
         help="Supported input file formats"
     )
     args.add_argument(
         "--output_formats",
-        type=str, default=["text", "html", "markdown"],
+        type=list, default=["text", "html", "markdown"],
         help="Output formats supported by the API"
     )
     args = args.parse_args()
