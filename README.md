@@ -179,7 +179,7 @@ The dataset’s structure supports flexible representation of layout classes and
 
 ### Setup
 
-Before setting up the environment, make sure to [install Git LFS](https://git-lfs.com/), which is required for handling large files.
+Before setting up the environment, **make sure to [install Git LFS](https://git-lfs.com/)**, which is required for handling large files.
 Once installed, you can clone the repository and install the necessary dependencies by running the following commands:
 
 ```
@@ -198,6 +198,9 @@ The benchmark dataset can be found in the `dataset` folder.
 It contains a wide range of document layouts, from text-heavy pages to complex tables, enabling a thorough evaluation of the parser’s performance. 
 The dataset comes with annotations for layout elements such as paragraphs, headings, and tables.
 
+The following options are required for evaluation:
+- **`--ref_path`**: Specifies the path to the reference JSON file, predefined as `data/reference.json` for evaluation purposes.
+- **`--pred_path`**: Indicates the path to the predicted JSON file. You can either use a sample result located in the `dataset/sample_results` folder, or generate your own by using the inference script provided in the `scripts` folder.
 
 #### Element detection and serialization evaluation
 This evaluation will compute the NID metric to assess how accurately the text in the document is recognized considering the structure and order of the document layout.
