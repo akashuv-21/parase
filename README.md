@@ -193,6 +193,9 @@ The repository includes necessary scripts for inference and evaluation, as descr
 We offer inference scripts that let you request results from various document parsing services.
 For more details, refer to this [README](https://huggingface.co/datasets/upstage/dp-bench/blob/main/scripts/README.md).
 
+To help you get started, sample output results for each service are available in the `dataset/sample_results` folder.
+
+
 ### Evaluation
 The benchmark dataset can be found in the `dataset` folder. 
 It contains a wide range of document layouts, from text-heavy pages to complex tables, enabling a thorough evaluation of the parser’s performance. 
