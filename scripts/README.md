@@ -1,9 +1,10 @@
 # Document Parsing Models - Inference Guide
 ## Overview
-The scripts in this folder allows users to extract structured data from unstructured documents using different document parsing services and libraries. 
-Each service follows a standard installation procedure and provides an infer_* script to perform inference on PDF/Image samples.
+The scripts in this folder allow users to extract structured data from unstructured documents using different document parsing services and libraries. 
+Each service follows a standard installation procedure and provides an `infer_*` script to perform inference on PDF or Image samples.
 
-You can choose from document parsing products such as **Upstage DP**, **AWS Textract**, **Google Document AI**, **Microsoft Azure Form Recognizer**, **LlamaParse**, or **Unstructured**. Most of these services require an API key for access. Make sure to follow specific setup instructions for each product to properly configure the environment.    
+You can choose from document parsing products such as **Upstage DP**, **AWS Textract**, **Google Document AI**, **Microsoft Azure Form Recognizer**, **LlamaParse**, or **Unstructured**. 
+Most of these services require an API key for access, so ensure you follow specific setup instructions for each product to configure the environment correctly.    
 
 Each service generates a JSON output file in a consistent format.
 You can find detailed information about the output format [here](https://github.com/UpstageAI/document-parse-benchmark-private?tab=readme-ov-file#dataset-format).
@@ -12,6 +13,8 @@ You can find detailed information about the output format [here](https://github.
 ## Upstage
 
 Follow the [official Upstage DP Documentation](https://developers.upstage.ai/docs/apis/document-parse) to set up Upstage for Document Parsing.
+
+**Note:** Ensure that the `UPSTAGE_ENDPOINT` and `UPSTAGE_API_KEY` variables are set up to run the code.
 
 Use the script below to make an inference:
 ```
@@ -31,6 +34,8 @@ $ aws configure
 $ pip install boto3
 ```
 Refer to the [AWS Textract Documentation](https://docs.aws.amazon.com/en_us/textract/latest/dg/getting-started.html) for detailed instructions.  
+
+**Note:** To run the AWS inference code, you need to set the following variables: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`, and `AWS_S3_BUCKET_NAME`.
 
 Use the script below to make an inference:
 ```
@@ -53,6 +58,8 @@ $ pip install google-cloud-documentai
 
 More information can be found in the [Google Document AI Documentation](https://console.cloud.google.com/ai/document-ai?hl=en)  
 
+**Note:** To run the Google inference code, you need to set the following variables: `GOOGLE_PROJECT_ID`, `GOOGLE_PROCESSOR_ID`, `GOOGLE_LOCATION`, and `GOOGLE_ENDPOINT`.
+
 Use the script below to make an inference:
 ```
 $ python infer_google.py \
@@ -62,6 +69,8 @@ $ python infer_google.py \
 
 ## LlamaParse
 Refer to the [official LlamaParse Documentation](https://docs.cloud.llamaindex.ai/category/API/parsing) to install and use LlamaParse for document analysis.  
+
+**Note:** Ensure that the `LLAMAPARSE_API_KEY`, `LLAMAPARSE_POST_URL`, and `LLAMAPARSE_GET_URL` variables are set before running the code.
 
 Use the script below to make an inference:
 ```
@@ -76,6 +85,8 @@ Install the Azure AI Form Recognizer SDK:
 $ pip install azure-ai-formrecognizer==3.3.0
 ```
 See the [Microsoft Azure Form Recognizer Documentation](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-python) for additional details.  
+
+**Note:** Set the `MICROSOFT_API_KEY` and `MICROSOFT_ENDPOINT` variables before running the code.
 
 Use the script below to make an inference:
 ```
@@ -95,6 +106,8 @@ $ apt install tesseract-ocr libtesseract-dev
 $ apt install tesseract-ocr-[lang] # use an appropriate language code 
 ```
 Detailed installation instructions can be found [here](https://unstructured-io.github.io/unstructured/installing.html). Use [Tesseract Language Codes](https://tesseract-ocr.github.io/tessdoc/Data-Files-in-different-versions.html) for OCR support in different languages.
+
+**Note:** To run the Unstructured inference code, you must set the `UNSTRUCTURED_API_KEY` and `UNSTRUCTURED_URL` variables.
 
 Use the script below to make an inference:
 ```
