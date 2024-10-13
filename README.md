@@ -228,7 +228,7 @@ $ python evaluate.py \
 # Leaderboard
 <div style="width: 800px;">
   
-| Source               | Request date | TEDS       | TEDS-S    | NID ⬇️      |  Avg. Time (secs)  |
+| Source               | Request date | TEDS ↑     | TEDS-S ↑  | NID ↑       |  Avg. Time (secs) ↓ |
 |:---------------------|:------------:|-----------:|----------:|------------:|------------:|
 | upstage              | 2024-10-10   | **92.06**  | **93.81** | **96.23**   |  **3.79**   |
 | aws                  | 2024-10-10   | 86.39      | 90.22     | 95.94       |  14.47      |
