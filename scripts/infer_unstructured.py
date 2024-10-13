@@ -6,7 +6,6 @@ from pathlib import Path
 
 import unstructured_client
 from unstructured_client.models import operations, shared
-from unstructured.staging.base import elements_from_dicts
 
 from utils import read_file_paths, validate_json_save_path, load_json_file
 
@@ -45,6 +44,9 @@ class UnstructuredInference:
         self.api_key = os.getenv("UNSTRUCTURED_API_KEY") or ""
         self.url = os.getenv("UNSTRUCTURED_URL") or ""
 
+        if not self.api_key or not self.url:
+            raise ValueError("Please set the environment variables for Unstructured")
+
         self.languages = ["eng", "kor"]
         self.get_coordinates = True
         self.infer_table_structure = True
@@ -70,15 +72,15 @@ class UnstructuredInference:
 
             id_counter = 0
             for elem in output_data:
-                transcription = elem
-                category = CATEGORY_MAP.get(elem.category, "paragraph")
-                if elem.metadata.coordinates is None:
+                transcription = elem["text"]
+                category = CATEGORY_MAP.get(elem["type"], "paragraph")
+                if elem["metadata"]["coordinates"] is None:
                     continue
 
-                xy_coord = [{"x": x, "y": y} for x, y in elem.metadata.coordinates.points]
+                xy_coord = [{"x": x, "y": y} for x, y in elem["metadata"]["coordinates"]["points"]]
 
                 if category == "table":
-                    transcription = elem.metadata.text_as_html
+                    transcription = elem["metadata"]["text_as_html"]
 
                 data_dict = {
                     "coordinates": xy_coord,
@@ -135,7 +137,7 @@ class UnstructuredInference:
 
             try:
                 res = self.client.general.partition(request=req)
-                elements = elements_from_dicts(res.elements)
+                elements = res.elements
             except Exception as e:
                 print(e)
                 print("Error processing document..")

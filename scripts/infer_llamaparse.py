@@ -34,6 +34,9 @@ class LlamaParseInference:
         self.post_url = os.getenv("LLAMAPARSE_POST_URL") or ""
         self.get_url = os.getenv("LLAMAPARSE_GET_URL") or ""
 
+        if not all([self.api_key, self.post_url, self.get_url]):
+            raise ValueError("Please set the environment variables for LlamaParse")
+
         self.headers = {
               "Accept": "application/json",
               "Authorization": f"Bearer {self.api_key}",

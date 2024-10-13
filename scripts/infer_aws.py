@@ -36,6 +36,10 @@ class AWSInference:
         AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY") or ""
         AWS_REGION = os.getenv("AWS_REGION") or ""
         AWS_S3_BUCKET_NAME = os.getenv("AWS_S3_BUCKET_NAME") or ""
+
+        if not all([AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION, AWS_S3_BUCKET_NAME]):
+            raise ValueError("Please set the environment variables for AWS")
+
         self.client = boto3.client(
             "textract",
             region_name=AWS_REGION,

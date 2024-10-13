@@ -99,13 +99,9 @@ $ python infer_microsoft.py \
 
 To handle various document formats with Unstructured, follow the steps below:
 ```
-$ pip install "unstructured[all-docs]"
-$ pip install poppler-utils
-
-$ apt install tesseract-ocr libtesseract-dev
-$ apt install tesseract-ocr-[lang] # use an appropriate language code 
+$ pip install "unstructured-client"
 ```
-Detailed installation instructions can be found [here](https://unstructured-io.github.io/unstructured/installing.html). Use [Tesseract Language Codes](https://tesseract-ocr.github.io/tessdoc/Data-Files-in-different-versions.html) for OCR support in different languages.
+Detailed installation instructions can be found [here](https://docs.unstructured.io/api-reference/api-services/sdk-python). 
 
 **Note:** To run the Unstructured inference code, you must set the `UNSTRUCTURED_API_KEY` and `UNSTRUCTURED_URL` variables.
 

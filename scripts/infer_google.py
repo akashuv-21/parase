@@ -35,12 +35,12 @@ class GoogleInference:
             input_formats (list, optional): the supported file formats.
         """
         self.project_id = os.getenv("GOOGLE_PROJECT_ID") or ""
-
         self.processor_id = os.getenv("GOOGLE_PROCESSOR_ID") or ""
-
         self.location = os.getenv("GOOGLE_LOCATION") or ""
-
         self.endpoint = os.getenv("GOOGLE_ENDPOINT") or ""
+
+        if not all([self.project_id, self.processor_id, self.location, self.endpoint]):
+            raise ValueError("Please set the environment variables for Google Cloud")
 
         self.processor_version = "rc"
 

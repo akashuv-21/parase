@@ -32,11 +32,14 @@ class MicrosoftInference:
             save_path (str): the json path to save the results
             input_formats (list, optional): the supported file formats.
         """
-        KEY = os.getenv("MICROSOFT_API_KEY") or ""
-        ENDPOINT = os.getenv("MICROSOFT_ENDPOINT") or ""
+        MICROSOFT_API_KEY = os.getenv("MICROSOFT_API_KEY") or ""
+        MICROSOFT_ENDPOINT = os.getenv("MICROSOFT_ENDPOINT") or ""
+
+        if not all([MICROSOFT_API_KEY, MICROSOFT_ENDPOINT]):
+            raise ValueError("Please set the environment variables for Microsoft")
 
         self.document_analysis_client = DocumentAnalysisClient(
-            endpoint=ENDPOINT, credential=AzureKeyCredential(KEY)
+            endpoint=MICROSOFT_ENDPOINT, credential=AzureKeyCredential(MICROSOFT_API_KEY)
         )
 
         validate_json_save_path(save_path)

@@ -27,6 +27,9 @@ class UpstageInference:
         self.endpoint = os.getenv("UPSTAGE_ENDPOINT", "")
         self.api_key = os.getenv("UPSTAGE_API_KEY", "")
 
+        if not all([self.endpoint, self.api_key]):
+            raise ValueError("Please set the environment variables for Upstage")
+
         validate_json_save_path(save_path)
         self.save_path = save_path
         self.processed_data = load_json_file(save_path)
