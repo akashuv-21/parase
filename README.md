@@ -67,7 +67,8 @@ The benchmark dataset is gathered from three sources: 90 samples from the Librar
 and 20 samples from Upstage's internal documents.
 Together, these sources provide a broad and specialized range of information.
 
-<div style="width: 500px;">
+<div style="max-width: 500px; width: 100%; overflow-x: auto; margin: 0 auto;">
+
   
 | Sources                    | Count|
 |:---------------------------|:----:|
@@ -89,7 +90,7 @@ Note that only Heading1 is included among various heading sizes because it repre
 This high-level segmentation is sufficient for assessing the core structure without adding unnecessary complexity. 
 Detailed heading levels like Heading2 and Heading3 are omitted to keep the evaluation focused and manageable.
 
-<div style="width: 500px;">
+<div style="max-width: 500px; width: 100%; overflow-x: auto; margin: 0 auto;">
   
 | Category   | Count |
 |:-----------|------:|
@@ -152,7 +153,7 @@ The dataset’s structure supports flexible representation of layout classes and
     ...
 ```
 
-<div style="width: 800px;">
+<div style="max-width: 800px; width: 100%; overflow-x: auto; margin: 0 auto;">
   
 ### Document domains
 | Domain                               | Subdomain               | Count |
@@ -226,7 +227,7 @@ $ python evaluate.py \
 ```
 
 # Leaderboard
-<div style="width: 800px;">
+<div style="max-width: 800px; width: 100%; overflow-x: auto; margin: 0 auto;">
   
 | Source               | Request date | TEDS ↑     | TEDS-S ↑  | NID ↑       |  Avg. Time (secs) ↓ |
 |:---------------------|:------------:|-----------:|----------:|------------:|------------:|
