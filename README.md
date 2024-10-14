@@ -199,7 +199,7 @@ It contains a wide range of document layouts, from text-heavy pages to complex t
 The dataset comes with annotations for layout elements such as paragraphs, headings, and tables.
 
 The following options are required for evaluation:
-- **`--ref_path`**: Specifies the path to the reference JSON file, predefined as `data/reference.json` for evaluation purposes.
+- **`--ref_path`**: Specifies the path to the reference JSON file, predefined as `dataset/reference.json` for evaluation purposes.
 - **`--pred_path`**: Indicates the path to the predicted JSON file. You can either use a sample result located in the `dataset/sample_results` folder, or generate your own by using the inference script provided in the `scripts` folder.
 
 #### Element detection and serialization evaluation
