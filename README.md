@@ -2,7 +2,7 @@
 license: mit
 tags:
 - nlp
-- image-to-text
+- Image-to-Text
 ---
 
 # **DP-Bench: Document Parsing Benchmark**
