@@ -151,6 +151,13 @@ class UnstructuredInference:
         with open(self.save_path, "w") as f:
             json.dump(result_dict, f)
 
+        for error_file in error_files:
+            print(f"Error processing file: {error_file}")
+
+        print("Finished processing all documents")
+        print("Results saved to: {}".format(self.save_path))
+        print("Number of errors: {}".format(len(error_files)))
+
 
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
